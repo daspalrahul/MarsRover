@@ -18,14 +18,16 @@ public class MarsRoverDriver {
                 String[] roverPositionTokens = roverPosition.split(" ");
                 MarsRover rover = new MarsRover(Integer.parseInt(plateauSize[0]),Integer.parseInt(plateauSize[1]),Integer.parseInt(roverPositionTokens[0]),Integer.parseInt(roverPositionTokens[1]),roverPositionTokens[2].charAt(0));
                 instructions=br.readLine();
+                int flag=1;
                 for(int i=0;i<instructions.length();i++){
                     switch(instructions.charAt(i)){
                         case 'L':rover.turn('L');break;
                         case 'R':rover.turn('R');break;
-                        case 'M':rover.move();break;
+                        case 'M':flag=rover.move();break;
                     }
                 }
-                rover.roverPosition();
+                if(flag==1)
+                    rover.roverPosition();
             }
         } catch (NumberFormatException ex) {
             System.out.println("Invalid Input");

@@ -15,7 +15,7 @@ public class MarsRover {
         dir=rD;
     }
     public MarsRover(){}
-    void move(){
+    int move(){
         switch(dir){
             case 'N': y++;break;
             case 'S': y--;break;
@@ -25,7 +25,9 @@ public class MarsRover {
         }
         if(x>limitX || y >limitY|| x<0 || y<0){
             System.out.println("Rover is out of bounds!!");
+            return 0;
         }
+        return 1;
     }
     void turn(char d){
         if(d=='L'){
